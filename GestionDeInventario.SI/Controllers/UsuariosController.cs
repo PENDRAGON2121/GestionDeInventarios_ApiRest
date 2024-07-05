@@ -58,5 +58,7 @@ namespace GestionDeInventario.SI.Controllers
             }
             return Ok(nombre);
         }
+        
+
     }
 }

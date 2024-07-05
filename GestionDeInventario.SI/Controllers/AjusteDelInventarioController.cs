@@ -31,16 +31,31 @@ namespace GestionDeInventario.SI.Controllers
             return Ok(ajusteDeInventarios);
         }
 
-        [HttpGet("ListaDe​AjustesPorId/{id}")]
-        public ActionResult<AjusteDeInventario> ObtenerAjustesDelInventarioPorId(int id)
+        [HttpGet("ListaPorId/{id}")]
+        public ActionResult<List<AjusteDeInventario>> ObtenerAjustesDelInventarioPorId(int id)
         {
             var inventario = _gestionDeInventarios.ObtengaLaListaDeAjustesPorIdentificacion(id);
-            if (inventario == null)
+            return Ok(inventario);
+        }
+        [HttpGet("ObtenerIdPorNombre/{nombre}")]
+        public ActionResult<String> ObtenerIdPorNombre(String nombre)
+        {
+            int UserId = _gestionDeInventarios.BusqueElIdDelUsuarioPorNombre(nombre);
+
+            if (UserId == null)
             {
                 return NotFound();
             }
-            return Ok(inventario);
+            return Ok(UserId);
         }
+
+        [HttpPost]
+        public ActionResult RegistrarAjusteDeInventario([FromBody] AjusteDeInventario ajusteDeInventario)
+        {
+            _gestionDeInventarios.RegistreUnAjusteDeInventario(ajusteDeInventario);
+            return Ok();
+        }
+
 
     }
 }
