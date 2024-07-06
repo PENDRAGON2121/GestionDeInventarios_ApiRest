@@ -26,7 +26,6 @@ namespace GestionDeInventario.SI.Controllers
             return Ok(laListaDelInventario);
         }
 
-        // GET: api/Inventarios/PorNombre/{nombre}
         [HttpGet("PorNombre/{nombre}")]
         public ActionResult<IEnumerable<Inventario>> ObtenerInventariosPorNombre(string nombre)
         {
@@ -34,11 +33,11 @@ namespace GestionDeInventario.SI.Controllers
             return Ok(laListaDelInventarioPorNombre);
         }
 
-        // GET: api/Inventarios/{id}
         [HttpGet("{id}")]
         public ActionResult<Inventario> ObtenerInventarioPorId(int id)
         {
             var inventario = _gestionDeInventarios.ObtengaElInventarioPorIdentificacion(id);
+
             if (inventario == null)
             {
                 return NotFound();
