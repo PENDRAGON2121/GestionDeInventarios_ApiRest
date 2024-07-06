@@ -58,7 +58,40 @@ namespace GestionDeInventario.SI.Controllers
             }
             return Ok(nombre);
         }
-        
+        [HttpGet("ObtenerUsuariosSinSuscripcion")]
+        public ActionResult<IEnumerable<Usuario>> ObtenerUsuarios()
+        {
+
+            var listaDeUsuarios = _administradorDeUsuarios.ObtengaLaListaDeUsuariosSinSuscripcion();
+            return Ok(listaDeUsuarios);
+        }
+        [HttpGet("VerifiqueLaSuscripcionDelUsuario/{id}")]
+        public ActionResult<String> ObtengaLaInformacionDeSuscripcion(int id)
+        {
+
+            Boolean suscripcion = _administradorDeUsuarios.ElUsuarioEstaSuscrito(id);
+
+            String respuesta = suscripcion.ToString();
+      
+            return Ok(suscripcion);
+        }
+        [HttpGet("VerifiqueLaSuscripcionDelUsuarioOAuth/{id}")]
+        public ActionResult<String> ObtengaLaInformacionDeSuscripcionOAuth(String id)
+        {
+
+            Boolean suscripcion = _administradorDeUsuarios.ElUsuarioEstaSuscrito(id);
+
+            String respuesta = suscripcion.ToString();
+
+            return Ok(suscripcion);
+        }
+
+        [HttpGet("SuscribirUsuarioPorId/{id}")]
+        public ActionResult ActualiceLaSuscripcion(int id)
+        {
+            _administradorDeUsuarios.SuscribaAlUsuarioPorId(id);
+            return Ok();
+        }
 
     }
 }

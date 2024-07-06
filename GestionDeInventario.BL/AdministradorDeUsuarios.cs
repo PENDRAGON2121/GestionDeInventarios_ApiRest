@@ -189,5 +189,51 @@ namespace GestionDeInventario.BL
             EnvieUnCorreoInformativoAlUsuario(usuarioOriginal.Email, TipoDeCorreo.CambioDeClave, usuarioOriginal);
             _contexto.SaveChanges();
         }
+
+        public bool ElUsuarioEstaSuscrito(int id)
+        {
+            String idString = id.ToString();
+
+            var _usuario = _contexto.Usuarios
+                           .Where(x => x.ID == id && x.Suscrito == true)
+                           .FirstOrDefault();
+            if (_usuario == null)
+            {
+
+                return false;
+            }
+            return (bool)_usuario.Suscrito;
+        }
+        public bool ElUsuarioEstaSuscrito(String id)
+        {
+            String idString = id.ToString();
+
+            var _usuario = _contexto.Usuarios
+                           .Where(x => x.OauthID == idString && x.Suscrito == true)
+                           .FirstOrDefault();
+            if (_usuario == null)
+            {
+
+                return false;
+            }
+            return (bool)_usuario.Suscrito;
+        }
+
+        public List<Usuario> ObtengaLaListaDeUsuariosSinSuscripcion()
+        {
+            var usuarios = _contexto.Usuarios
+                           .Where(x => x.Suscrito == false)
+                           .ToList();
+            return usuarios;
+        }
+
+        public void SuscribaAlUsuarioPorId(int id)
+        {
+            Usuario usuario = _contexto.Usuarios
+                           .Where(x => x.ID == id)
+                           .FirstOrDefault();
+            usuario.Suscrito = true;
+            _contexto.SaveChanges();
+        }
     }
 }

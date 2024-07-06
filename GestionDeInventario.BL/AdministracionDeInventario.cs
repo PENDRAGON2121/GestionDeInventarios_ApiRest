@@ -202,24 +202,29 @@ namespace GestionDeInventario.BL
         }
         public Boolean TieneAperturaDeCaja(String USERID)
         {
+
             var lista = Conexion.AperturasDeCaja.ToList();
 
-            if (lista.Count != 0)
-            {
-                var item = lista.Last();
-                if (item.UserId == USERID && item.Estado == EstadoDeCaja.Cerrada)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-            else
+            if (lista.Count.Equals(0)) 
             {
                 return false;
             }
+
+            var ultimaApertura = lista.Last();
+
+            if (ultimaApertura == null || ultimaApertura.Estado == EstadoDeCaja.Cerrada)
+            {
+                return false;
+            }
+
+
+            if (ultimaApertura.UserId != USERID && ultimaApertura.Estado == EstadoDeCaja.Abierta) 
+            {
+                CerrarUnaCaja();
+                return false;
+            }
+
+            return true;
 
 
         }

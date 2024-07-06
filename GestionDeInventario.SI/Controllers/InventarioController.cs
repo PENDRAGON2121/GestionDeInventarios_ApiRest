@@ -46,7 +46,6 @@ namespace GestionDeInventario.SI.Controllers
             return Ok(inventario);
         }
 
-        // GET: api/Inventarios/Historial/{id}
         [HttpGet("Historial/{id}")]
         public ActionResult<IEnumerable <HistorialDeInventario>> ObtenerHistorialDeCambios(int id)
         {

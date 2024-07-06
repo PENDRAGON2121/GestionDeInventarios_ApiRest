@@ -19,5 +19,9 @@ namespace GestionDeInventario.BL
         public Boolean EstaRegistradoElUsuarioConOAuth(String idOauth);
         public void EnvieUnCorreoInformativoAlUsuario(String _emailDeDestino, TipoDeCorreo _tipoDeCorreo, Usuario _user);
         public void ActualiceLosDatosDelUsuario(UsuarioActualizado _usuario, String _email, String username);
+        public Boolean ElUsuarioEstaSuscrito(int usuario);
+        public Boolean ElUsuarioEstaSuscrito(String usuario);
+        public List<Usuario> ObtengaLaListaDeUsuariosSinSuscripcion();
+        public void SuscribaAlUsuarioPorId(int id);
     }
 }
