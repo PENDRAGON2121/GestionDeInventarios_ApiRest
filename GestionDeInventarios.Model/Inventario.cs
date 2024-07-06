@@ -20,6 +20,7 @@ namespace GestionDeInventarios.Model
 
         [NotMapped]
         public List<HistorialDeInventario> HistorialDeCambios { get; set; } = new List<HistorialDeInventario>();
+        
         [NotMapped]
         public string? UsuarioCreador { get; set; }
     }

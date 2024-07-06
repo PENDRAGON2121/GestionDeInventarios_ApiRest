@@ -1,4 +1,5 @@
 ﻿using GestionDeInventario.BL;
+using GestionDeInventario.DA;
 using GestionDeInventarios.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -71,6 +72,13 @@ namespace GestionDeInventario.SI.Controllers
             return Ok();
         }
 
+        [HttpPut("Actualice")]
+        public ActionResult ActualiceElInventario([FromBody] Inventario inventario)
+        {
+            _gestionDeInventarios.ActualiceElInventario(inventario);
+
+            return Ok();
+        }
 
     }
 }

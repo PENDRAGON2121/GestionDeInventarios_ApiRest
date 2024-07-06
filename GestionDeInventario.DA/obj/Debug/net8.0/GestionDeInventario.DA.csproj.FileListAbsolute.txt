@@ -88,3 +88,4 @@ C:\Users\mquir\source\repos\GestorDeInventarioAPI\GestorDeInventario\GestionDeIn
 C:\Users\mquir\source\repos\GestorDeInventarioAPI\GestorDeInventario\GestionDeInventario.DA\obj\Debug\net8.0\refint\GestionDeInventario.DA.dll
 C:\Users\mquir\source\repos\GestorDeInventarioAPI\GestorDeInventario\GestionDeInventario.DA\obj\Debug\net8.0\GestionDeInventario.DA.pdb
 C:\Users\mquir\source\repos\GestorDeInventarioAPI\GestorDeInventario\GestionDeInventario.DA\obj\Debug\net8.0\ref\GestionDeInventario.DA.dll
+C:\Users\mquir\source\repos\GestorDeInventarioAPI\GestorDeInventario\GestionDeInventario.DA\obj\Debug\net8.0\GestionDeInventario.DA.sourcelink.json
