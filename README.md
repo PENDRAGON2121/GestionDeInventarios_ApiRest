@@ -2,6 +2,8 @@ NOTA: TODAS LAS KEYS ESTAN DESHABILITADAS, FUERON UNICAMENTE INCLUIDAS CUANDO EL
 
 
 
+Date un tour del sistema:
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/PENDRAGON2121/GestionDeInventarios_ApiRest)
 
 ## SQL SERVER USER SCRIPT
 
